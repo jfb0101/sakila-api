@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "criando schema do banco"
+cat sakila-db/sakila-schema.sql | docker exec -i sakila-database mysql -u root -p1q2w3e4r sakila
+
+echo "restaurando dados do banco"
+cat sakila-db/sakila-data.sql | docker exec -i sakila-database mysql -u root -p1q2w3e4r sakila

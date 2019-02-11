@@ -1,0 +1,17 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "sakilaDS": {
+    "host": "",
+    "port": 0,
+    "url": "mysql://root:1q2w3e4r@localhost/sakila",
+    "database": "",
+    "password": "",
+    "name": "sakilaDS",
+    "user": "",
+    "connector": "mysql"
+  }
+}
+  

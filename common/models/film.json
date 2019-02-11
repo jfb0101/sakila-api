@@ -1,0 +1,35 @@
+{
+  "name": "Film",
+  "plural": "Films",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mysql": {
+      "table": "film"
+    }
+  },
+  "properties": {
+    "filmId": {
+      "type": "number",
+      "required": false,
+      "id": 1,
+      "mysql": {
+        "columnName": "film_id",
+        "dataType": "int"
+      }
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "title",
+        "dataType": "varchar"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
