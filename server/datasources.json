@@ -12,6 +12,24 @@
     "name": "sakilaDS",
     "user": "",
     "connector": "mysql"
+  },
+  "EmailDS": {
+    "name": "EmailDS",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "mail.adamantio.com.br",
+        "secure": false,
+        "port": 5050,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "cursonode@treinarinformatica.com.br",
+          "pass": "Qv8kVLWTsf"
+        }
+      }
+    ]
   }
 }
-  

@@ -19,7 +19,8 @@ describe('testes sobre filmes',function(){
     describe('CT0002 - cadastrar filme',function(){
         it("teste",async function(){
             let film: Film = {
-                title: "filme teste"
+                title: "filme teste",
+                language_id: 1
             }
 
             let response = await supertest(app)

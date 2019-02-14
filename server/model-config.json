@@ -14,29 +14,36 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "sakilaDS"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "sakilaDS",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "sakilaDS",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "sakilaDS",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "sakilaDS",
     "public": false
   },
   "Film": {
     "dataSource": "sakilaDS",
     "public": true
+  },
+  "Language": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "EmailDS"
   }
 }

@@ -12,8 +12,8 @@
   "properties": {
     "filmId": {
       "type": "number",
-      "required": false,
       "id": 1,
+      "required": false,
       "mysql": {
         "columnName": "film_id",
         "dataType": "int"
@@ -29,7 +29,26 @@
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "language": {
+      "type": "belongsTo",
+      "model": "Language",
+      "foreignKey": "language_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

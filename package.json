@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "nodemon --inspect .",
+    "start": "nodemon -r ts-node/register --inspect .",
     "posttest": "npm run lint",
     "test": "./node_modules/.bin/mocha -r ts-node/register test/**"
   },
