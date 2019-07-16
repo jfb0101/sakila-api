@@ -11,15 +11,15 @@ const DATASOURCE_NAME = 'sakilaDS'
 const dataSourceConfig = require('./server/datasources.json')
 const db = new loopback.DataSource(dataSourceConfig[DATASOURCE_NAME])
 
-const models = ['inventory', 'rental', 'customer']
+const models = ['inventory', 'rental', 'customer','actor',]
 
 async function discover() {
     let promises = []
 
     models.forEach(model => {
-        promises.push(new Promise((resolve, reject) => {
+        promises.push(new Promise(async (resolve, reject) => {
             try {
-                const options = { relations: false }
+                const options = { relations: true }
 
                 const schema = await db.discoverSchemas(model, options)
 
