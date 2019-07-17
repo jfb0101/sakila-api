@@ -1,31 +1,28 @@
 {
-  "name": "Inventory",
+  "name": "FilmCategory",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "sakila",
-      "table": "inventory"
+      "table": "film_category"
+    },
+    "relations": {
+      "category": {
+        "model": "Category",
+        "type": "belongsTo",
+        "foreignKey": "categoryId"
+      },
+      "film": {
+        "model": "Film",
+        "type": "belongsTo",
+        "foreignKey": "filmId"
+      }
     }
   },
   "properties": {
-    "inventoryId": {
-      "type": "Number",
-      "id": 1,
-      "required": true,
-      "length": null,
-      "precision": 7,
-      "scale": 0,
-      "mysql": {
-        "columnName": "inventory_id",
-        "dataType": "mediumint",
-        "dataLength": null,
-        "dataPrecision": 7,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
     "filmId": {
       "type": "Number",
+      "id": 1,
       "required": true,
       "length": null,
       "precision": 5,
@@ -39,14 +36,15 @@
         "nullable": "N"
       }
     },
-    "storeId": {
+    "categoryId": {
       "type": "Number",
+      "id": 2,
       "required": true,
       "length": null,
       "precision": 3,
       "scale": 0,
       "mysql": {
-        "columnName": "store_id",
+        "columnName": "category_id",
         "dataType": "tinyint",
         "dataLength": null,
         "dataPrecision": 3,
@@ -71,23 +69,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "film": {
-      "model": "Film",
-      "type": "belongsTo",
-      "foreignKey": "filmId"
-    },
-    "store": {
-      "model": "Store",
-      "type": "belongsTo",
-      "foreignKey": "storeId"
-    },
-    "rentals": {
-      "model": "Rental",
-      "type": "hasMany",
-      "foreignKey": "inventoryId"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

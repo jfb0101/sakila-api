@@ -1,46 +1,17 @@
 {
-  "name": "Inventory",
+  "name": "Store",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "sakila",
-      "table": "inventory"
+      "table": "store"
     }
+   
   },
   "properties": {
-    "inventoryId": {
-      "type": "Number",
-      "id": 1,
-      "required": true,
-      "length": null,
-      "precision": 7,
-      "scale": 0,
-      "mysql": {
-        "columnName": "inventory_id",
-        "dataType": "mediumint",
-        "dataLength": null,
-        "dataPrecision": 7,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "filmId": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 5,
-      "scale": 0,
-      "mysql": {
-        "columnName": "film_id",
-        "dataType": "smallint",
-        "dataLength": null,
-        "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
     "storeId": {
       "type": "Number",
+      "id": 1,
       "required": true,
       "length": null,
       "precision": 3,
@@ -50,6 +21,36 @@
         "dataType": "tinyint",
         "dataLength": null,
         "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "managerStaffId": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "manager_staff_id",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "addressId": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "address_id",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
         "dataScale": 0,
         "nullable": "N"
       }
@@ -72,20 +73,30 @@
   },
   "validations": [],
   "relations": {
-    "film": {
-      "model": "Film",
+    "address": {
+      "model": "Address",
       "type": "belongsTo",
-      "foreignKey": "filmId"
+      "foreignKey": "addressId"
     },
-    "store": {
-      "model": "Store",
+    "manager": {
+      "model": "Staff",
       "type": "belongsTo",
+      "foreignKey": "managerStaffId"
+    },
+    "staffs": {
+      "model": "Staff",
+      "type": "hasMany",
       "foreignKey": "storeId"
     },
-    "rentals": {
-      "model": "Rental",
+    "inventories": {
+      "model": "Inventory",
       "type": "hasMany",
-      "foreignKey": "inventoryId"
+      "foreignKey": "storeId"
+    },
+    "customers": {
+      "model": "Customer",
+      "type": "hasMany",
+      "foreignKey": "storeId"
     }
   },
   "acls": [],

@@ -1,56 +1,25 @@
 {
-  "name": "Rental",
+  "name": "Payment",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "sakila",
-      "table": "rental"
+      "table": "payment"
     }
-   
   },
   "properties": {
-    "rentalId": {
+    "paymentId": {
       "type": "Number",
       "id": 1,
       "required": true,
       "length": null,
-      "precision": 10,
+      "precision": 5,
       "scale": 0,
       "mysql": {
-        "columnName": "rental_id",
-        "dataType": "int",
+        "columnName": "payment_id",
+        "dataType": "smallint",
         "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "rentalDate": {
-      "type": "Date",
-      "required": true,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "rental_date",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "inventoryId": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 7,
-      "scale": 0,
-      "mysql": {
-        "columnName": "inventory_id",
-        "dataType": "mediumint",
-        "dataLength": null,
-        "dataPrecision": 7,
+        "dataPrecision": 5,
         "dataScale": 0,
         "nullable": "N"
       }
@@ -70,21 +39,6 @@
         "nullable": "N"
       }
     },
-    "returnDate": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "return_date",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
     "staffId": {
       "type": "Number",
       "required": true,
@@ -97,6 +51,51 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "rentalId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "rental_id",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "amount": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 2,
+      "mysql": {
+        "columnName": "amount",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 2,
+        "nullable": "N"
+      }
+    },
+    "paymentDate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "payment_date",
+        "dataType": "datetime",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       }
     },
@@ -123,10 +122,10 @@
       "type": "belongsTo",
       "foreignKey": "customerId"
     },
-    "inventory": {
-      "model": "Inventory",
+    "rental": {
+      "model": "Rental",
       "type": "belongsTo",
-      "foreignKey": "inventoryId"
+      "foreignKey": "rentalId"
     },
     "staff": {
       "model": "Staff",

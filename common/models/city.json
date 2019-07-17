@@ -1,37 +1,23 @@
 {
-  "name": "Inventory",
+  "name": "City",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "sakila",
-      "table": "inventory"
+      "table": "city"
     }
+   
   },
   "properties": {
-    "inventoryId": {
+    "cityId": {
       "type": "Number",
       "id": 1,
-      "required": true,
-      "length": null,
-      "precision": 7,
-      "scale": 0,
-      "mysql": {
-        "columnName": "inventory_id",
-        "dataType": "mediumint",
-        "dataLength": null,
-        "dataPrecision": 7,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "filmId": {
-      "type": "Number",
       "required": true,
       "length": null,
       "precision": 5,
       "scale": 0,
       "mysql": {
-        "columnName": "film_id",
+        "columnName": "city_id",
         "dataType": "smallint",
         "dataLength": null,
         "dataPrecision": 5,
@@ -39,17 +25,32 @@
         "nullable": "N"
       }
     },
-    "storeId": {
+    "city": {
+      "type": "String",
+      "required": true,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "city",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "countryId": {
       "type": "Number",
       "required": true,
       "length": null,
-      "precision": 3,
+      "precision": 5,
       "scale": 0,
       "mysql": {
-        "columnName": "store_id",
-        "dataType": "tinyint",
+        "columnName": "country_id",
+        "dataType": "smallint",
         "dataLength": null,
-        "dataPrecision": 3,
+        "dataPrecision": 5,
         "dataScale": 0,
         "nullable": "N"
       }
@@ -72,20 +73,10 @@
   },
   "validations": [],
   "relations": {
-    "film": {
-      "model": "Film",
+    "country": {
+      "model": "Country",
       "type": "belongsTo",
-      "foreignKey": "filmId"
-    },
-    "store": {
-      "model": "Store",
-      "type": "belongsTo",
-      "foreignKey": "storeId"
-    },
-    "rentals": {
-      "model": "Rental",
-      "type": "hasMany",
-      "foreignKey": "inventoryId"
+      "foreignKey": "countryId"
     }
   },
   "acls": [],

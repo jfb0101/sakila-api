@@ -1,48 +1,241 @@
 {
   "name": "Film",
-  "plural": "Films",
-  "base": "PersistedModel",
-  "idInjection": true,
   "options": {
-    "validateUpsert": true,
+    "idInjection": false,
     "mysql": {
+      "schema": "sakila",
       "table": "film"
     }
+   
   },
   "properties": {
     "filmId": {
-      "type": "number",
+      "type": "Number",
       "id": 1,
-      "required": false,
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
       "mysql": {
         "columnName": "film_id",
-        "dataType": "int"
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "N"
       }
     },
     "title": {
-      "type": "string",
+      "type": "String",
       "required": true,
+      "length": 255,
+      "precision": null,
+      "scale": null,
       "mysql": {
         "columnName": "title",
-        "dataType": "varchar"
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "description": {
+      "type": "String",
+      "required": false,
+      "length": 65535,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "description",
+        "dataType": "text",
+        "dataLength": 65535,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "releaseYear": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "release_year",
+        "dataType": "year",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "languageId": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "language_id",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "originalLanguageId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "original_language_id",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "rentalDuration": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "rental_duration",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "rentalRate": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 4,
+      "scale": 2,
+      "mysql": {
+        "columnName": "rental_rate",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 4,
+        "dataScale": 2,
+        "nullable": "N"
+      }
+    },
+    "length": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "length",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "replacementCost": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 2,
+      "mysql": {
+        "columnName": "replacement_cost",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 2,
+        "nullable": "N"
+      }
+    },
+    "rating": {
+      "type": "String",
+      "required": false,
+      "length": 5,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "rating",
+        "dataType": "enum",
+        "dataLength": 5,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "specialFeatures": {
+      "type": "String",
+      "required": false,
+      "length": 54,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "special_features",
+        "dataType": "set",
+        "dataLength": 54,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "lastUpdate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "last_update",
+        "dataType": "timestamp",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     }
   },
   "validations": [],
+  "acls": [],
+  "methods": {},
   "relations": {
     "language": {
-      "type": "belongsTo",
       "model": "Language",
-      "foreignKey": "language_id"
+      "type": "belongsTo",
+      "foreignKey": "languageId"
     },
-    "inventories": {
+    "originalLanguage": {
+      "model": "Language",
+      "type": "belongsTo",
+      "foreignKey": "originalLanguageId"
+    },
+    "categories": {
+      "type": "hasMany",
+      "model": "Category",
+      "foreignKey": "filmId",
+      "through": "FilmCategory"
+    },
+    "actors": {
+      "type": "hasMany",
+      "model": "Actor",
+      "foreignKey": "filmId",
+      "through": "FilmActor"
+    },
+    "inventory": {
       "type": "hasMany",
       "model": "Inventory",
-      "foreignKey": "film_id"
+      "foreignKey": "filmId"
     }
-  },
-  "acls": [
-   
-  ],
-  "methods": {}
+  }
 }

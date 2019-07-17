@@ -1,37 +1,22 @@
 {
-  "name": "Customer",
+  "name": "Staff",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "sakila",
-      "table": "customer"
+      "table": "staff"
     }
   },
   "properties": {
-    "customerId": {
+    "staffId": {
       "type": "Number",
       "id": 1,
-      "required": true,
-      "length": null,
-      "precision": 5,
-      "scale": 0,
-      "mysql": {
-        "columnName": "customer_id",
-        "dataType": "smallint",
-        "dataLength": null,
-        "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "storeId": {
-      "type": "Number",
       "required": true,
       "length": null,
       "precision": 3,
       "scale": 0,
       "mysql": {
-        "columnName": "store_id",
+        "columnName": "staff_id",
         "dataType": "tinyint",
         "dataLength": null,
         "dataPrecision": 3,
@@ -69,6 +54,36 @@
         "nullable": "N"
       }
     },
+    "addressId": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "address_id",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "picture": {
+      "type": "Binary",
+      "required": false,
+      "length": 65535,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "picture",
+        "dataType": "blob",
+        "dataLength": 65535,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
     "email": {
       "type": "String",
       "required": false,
@@ -84,17 +99,17 @@
         "nullable": "Y"
       }
     },
-    "addressId": {
+    "storeId": {
       "type": "Number",
       "required": true,
       "length": null,
-      "precision": 5,
+      "precision": 3,
       "scale": 0,
       "mysql": {
-        "columnName": "address_id",
-        "dataType": "smallint",
+        "columnName": "store_id",
+        "dataType": "tinyint",
         "dataLength": null,
-        "dataPrecision": 5,
+        "dataPrecision": 3,
         "dataScale": 0,
         "nullable": "N"
       }
@@ -114,19 +129,34 @@
         "nullable": "N"
       }
     },
-    "createDate": {
-      "type": "Date",
+    "username": {
+      "type": "String",
       "required": true,
-      "length": null,
+      "length": 16,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "create_date",
-        "dataType": "datetime",
-        "dataLength": null,
+        "columnName": "username",
+        "dataType": "varchar",
+        "dataLength": 16,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
+      }
+    },
+    "password": {
+      "type": "String",
+      "required": false,
+      "length": 40,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "password",
+        "dataType": "varchar",
+        "dataLength": 40,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
       }
     },
     "lastUpdate": {
@@ -156,16 +186,6 @@
       "model": "Store",
       "type": "belongsTo",
       "foreignKey": "storeId"
-    },
-    "rentals": {
-      "model": "Rental",
-      "type": "hasMany",
-      "foreignKey": "customerId"
-    },
-    "payments": {
-      "model": "Payment",
-      "type": "hasMany",
-      "foreignKey": "customerId"
     }
   },
   "acls": [],

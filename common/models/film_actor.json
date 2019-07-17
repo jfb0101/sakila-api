@@ -1,31 +1,44 @@
 {
-  "name": "Inventory",
+  "name": "FilmActor",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "sakila",
-      "table": "inventory"
+      "table": "film_actor"
+    },
+    "relations": {
+      "actor": {
+        "model": "Actor",
+        "type": "belongsTo",
+        "foreignKey": "actorId"
+      },
+      "film": {
+        "model": "Film",
+        "type": "belongsTo",
+        "foreignKey": "filmId"
+      }
     }
   },
   "properties": {
-    "inventoryId": {
+    "actorId": {
       "type": "Number",
       "id": 1,
       "required": true,
       "length": null,
-      "precision": 7,
+      "precision": 5,
       "scale": 0,
       "mysql": {
-        "columnName": "inventory_id",
-        "dataType": "mediumint",
+        "columnName": "actor_id",
+        "dataType": "smallint",
         "dataLength": null,
-        "dataPrecision": 7,
+        "dataPrecision": 5,
         "dataScale": 0,
         "nullable": "N"
       }
     },
     "filmId": {
       "type": "Number",
+      "id": 2,
       "required": true,
       "length": null,
       "precision": 5,
@@ -35,21 +48,6 @@
         "dataType": "smallint",
         "dataLength": null,
         "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "storeId": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 3,
-      "scale": 0,
-      "mysql": {
-        "columnName": "store_id",
-        "dataType": "tinyint",
-        "dataLength": null,
-        "dataPrecision": 3,
         "dataScale": 0,
         "nullable": "N"
       }
@@ -71,23 +69,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "film": {
-      "model": "Film",
-      "type": "belongsTo",
-      "foreignKey": "filmId"
-    },
-    "store": {
-      "model": "Store",
-      "type": "belongsTo",
-      "foreignKey": "storeId"
-    },
-    "rentals": {
-      "model": "Rental",
-      "type": "hasMany",
-      "foreignKey": "inventoryId"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

@@ -1,91 +1,17 @@
 {
-  "name": "Customer",
+  "name": "Address",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "sakila",
-      "table": "customer"
+      "table": "address"
     }
+    
   },
   "properties": {
-    "customerId": {
-      "type": "Number",
-      "id": 1,
-      "required": true,
-      "length": null,
-      "precision": 5,
-      "scale": 0,
-      "mysql": {
-        "columnName": "customer_id",
-        "dataType": "smallint",
-        "dataLength": null,
-        "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "storeId": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 3,
-      "scale": 0,
-      "mysql": {
-        "columnName": "store_id",
-        "dataType": "tinyint",
-        "dataLength": null,
-        "dataPrecision": 3,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "firstName": {
-      "type": "String",
-      "required": true,
-      "length": 45,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "first_name",
-        "dataType": "varchar",
-        "dataLength": 45,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "lastName": {
-      "type": "String",
-      "required": true,
-      "length": 45,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "last_name",
-        "dataType": "varchar",
-        "dataLength": 45,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "email": {
-      "type": "String",
-      "required": false,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "email",
-        "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
     "addressId": {
       "type": "Number",
+      "id": 1,
       "required": true,
       "length": null,
       "precision": 5,
@@ -99,30 +25,105 @@
         "nullable": "N"
       }
     },
-    "active": {
+    "address": {
+      "type": "String",
+      "required": true,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "address",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "address2": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "address2",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "district": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "district",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "cityId": {
       "type": "Number",
       "required": true,
       "length": null,
-      "precision": 3,
+      "precision": 5,
       "scale": 0,
       "mysql": {
-        "columnName": "active",
-        "dataType": "tinyint",
+        "columnName": "city_id",
+        "dataType": "smallint",
         "dataLength": null,
-        "dataPrecision": 3,
+        "dataPrecision": 5,
         "dataScale": 0,
         "nullable": "N"
       }
     },
-    "createDate": {
-      "type": "Date",
+    "postalCode": {
+      "type": "String",
+      "required": false,
+      "length": 10,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "postal_code",
+        "dataType": "varchar",
+        "dataLength": 10,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "phone": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "phone",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "location": {
+      "type": "String",
       "required": true,
       "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "create_date",
-        "dataType": "datetime",
+        "columnName": "location",
+        "dataType": "geometry",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
@@ -147,25 +148,10 @@
   },
   "validations": [],
   "relations": {
-    "address": {
-      "model": "Address",
+    "city": {
+      "model": "City",
       "type": "belongsTo",
-      "foreignKey": "addressId"
-    },
-    "store": {
-      "model": "Store",
-      "type": "belongsTo",
-      "foreignKey": "storeId"
-    },
-    "rentals": {
-      "model": "Rental",
-      "type": "hasMany",
-      "foreignKey": "customerId"
-    },
-    "payments": {
-      "model": "Payment",
-      "type": "hasMany",
-      "foreignKey": "customerId"
+      "foreignKey": "cityId"
     }
   },
   "acls": [],

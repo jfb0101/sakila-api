@@ -35,17 +35,6 @@
     "dataSource": "sakilaDS",
     "public": false
   },
-  "Film": {
-    "dataSource": "sakilaDS",
-    "public": true
-  },
-  "Language": {
-    "dataSource": "sakilaDS",
-    "public": true
-  },
-  "Email": {
-    "dataSource": "EmailDS"
-  },
   "Inventory": {
     "dataSource": "sakilaDS",
     "public": true
@@ -55,6 +44,58 @@
     "public": true
   },
   "Customer": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Actor": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Address": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Category": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "City": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Country": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Film": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "FilmActor": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "FilmCategory": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "FilmText": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Language": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Payment": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Staff": {
+    "dataSource": "sakilaDS",
+    "public": true
+  },
+  "Store": {
     "dataSource": "sakilaDS",
     "public": true
   }
