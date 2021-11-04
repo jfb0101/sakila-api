@@ -42,7 +42,7 @@
     },
     "inventoryId": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 7,
       "scale": 0,
@@ -57,7 +57,7 @@
     },
     "customerId": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 5,
       "scale": 0,
@@ -87,7 +87,7 @@
     },
     "staffId": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,

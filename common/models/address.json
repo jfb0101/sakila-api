@@ -1,7 +1,7 @@
 {
   "name": "Address",
   "options": {
-    "idInjection": false,
+    "idInjection": true,
     "mysql": {
       "schema": "sakila",
       "table": "address"
@@ -12,8 +12,9 @@
     "addressId": {
       "type": "Number",
       "id": 1,
-      "required": true,
+      "required": false,
       "length": null,
+
       "precision": 5,
       "scale": 0,
       "mysql": {
@@ -22,7 +23,7 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "address": {
@@ -37,7 +38,7 @@
         "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "address2": {
@@ -57,7 +58,7 @@
     },
     "district": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 20,
       "precision": null,
       "scale": null,
@@ -67,7 +68,7 @@
         "dataLength": 20,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "cityId": {
@@ -82,7 +83,7 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "postalCode": {
@@ -102,7 +103,7 @@
     },
     "phone": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 20,
       "precision": null,
       "scale": null,
@@ -112,12 +113,12 @@
         "dataLength": 20,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "location": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": null,
       "scale": null,
@@ -127,12 +128,12 @@
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "lastUpdate": {
       "type": "Date",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": null,
       "scale": null,
@@ -142,7 +143,7 @@
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     }
   },

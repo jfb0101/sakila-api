@@ -4,12 +4,19 @@ services:
         image: mysql:5.7
         container_name: sakila-database
         volumes:
-            - dbdata:/var/lib/mysql
+            - ./db/var/lib/mysql:/var/lib/mysql
         restart: on-failure
         ports:
             - "3306:3306"
         environment:
             - MYSQL_ROOT_PASSWORD=1q2w3e4r
+    app:
+        image: node:12
+        volumes:
+            - ./:/code
+        ports:
+            - 7000:7000
+        command: ["npm","start","--prefix","/code"]
 volumes:
     dbdata:
         driver: local

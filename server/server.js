@@ -5,6 +5,8 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+const util = require('util')
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
@@ -25,5 +27,14 @@ boot(app, __dirname, function(err) {
 
   // start the server if `$ node server.js`
   if (require.main === module)
-    app.start();
+    // app.start();
+    app.io = require('socket.io')(app.start())
+
+    app.io.on('connection',socket => {
+      
+      util.promisify(app.models.Film.getLastUpdate)().then(lastUpdate => socket.emit('lastFilmsUpdate',lastUpdate))
+
+      socket.on('disconnect', () => console.log(`disconnected`))
+      
+    })
 });

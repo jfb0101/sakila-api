@@ -11,7 +11,7 @@
     "customerId": {
       "type": "Number",
       "id": 1,
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 5,
       "scale": 0,
@@ -21,12 +21,12 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "storeId": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -36,12 +36,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "firstName": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 45,
       "precision": null,
       "scale": null,
@@ -51,12 +51,12 @@
         "dataLength": 45,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "lastName": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 45,
       "precision": null,
       "scale": null,
@@ -66,7 +66,7 @@
         "dataLength": 45,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "email": {
@@ -86,7 +86,7 @@
     },
     "addressId": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 5,
       "scale": 0,
@@ -96,12 +96,12 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "active": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -111,12 +111,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "createDate": {
       "type": "Date",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": null,
       "scale": null,
@@ -126,12 +126,12 @@
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "lastUpdate": {
       "type": "Date",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": null,
       "scale": null,
@@ -141,7 +141,7 @@
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     }
   },
